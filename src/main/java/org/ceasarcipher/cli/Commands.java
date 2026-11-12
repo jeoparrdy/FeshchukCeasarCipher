@@ -1,11 +1,14 @@
 package org.ceasarcipher.cli;
 
+import org.ceasarcipher.cipher.BrutForcer;
 import org.ceasarcipher.cipher.Decrypter;
 import org.ceasarcipher.cipher.Encrypter;
 
 public enum Commands {
     ENCRYPT("Encrypt file", Encrypter.INSTANCE),
-    DECRYPT("Decrypt file", Decrypter.INSTANCE);
+    DECRYPT("Decrypt file", Decrypter.INSTANCE),
+    BRUT_FORCE("Brut force", BrutForcer.INSTANCE),
+    EXIT("Exit program", false);
 
     private final String label;
     private final Object command;
