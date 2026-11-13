@@ -4,7 +4,7 @@ public class Decrypter {
     public static final Decrypter INSTANCE = new Decrypter();
     private Decrypter() {}
 
-    public void execute() {
-        
+    public String decrypt(String line, int key) {
+        return null;
     }
 }
