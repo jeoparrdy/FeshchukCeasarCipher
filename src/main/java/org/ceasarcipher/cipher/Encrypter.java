@@ -14,7 +14,7 @@ public final class Encrypter {
 
     public void execute(String filePath, int key)  {
         Path source = Path.of(filePath);
-        Path target = source.resolveSibling("encrypted_" + source.getFileName());
+        Path target = FileService.generateOutputPath(source, "[ENCRYPTED]");
         String content = null;
         try {
             content = FileService.read(source);
@@ -27,6 +27,7 @@ public final class Encrypter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Encrypted file created: " + target);
     }
 
     public String encrypt(String text, int key) {

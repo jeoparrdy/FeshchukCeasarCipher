@@ -14,7 +14,7 @@ public final class Decrypter {
 
     public void execute(String filePath, int key) {
         Path source = Path.of(filePath);
-        Path target = source.resolveSibling("decrypted_" + source.getFileName());
+        Path target = FileService.generateOutputPath(source, "[DECRYPTED]");
         String content = null;
         try {
             content = FileService.read(source);
@@ -27,6 +27,7 @@ public final class Decrypter {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        System.out.println("Decrypted file created: " + target);
     }
 
     public String decrypt(String text, int key) {

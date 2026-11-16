@@ -34,4 +34,18 @@ public final class FileService {
                 StandardOpenOption.APPEND
         );
     }
+
+    public static Path generateOutputPath(Path source, String suffix) {
+        String fileName = source.getFileName().toString();
+        int dotIndex = fileName.lastIndexOf('.');
+        String newFileName;
+        if (dotIndex > 0) {
+            String name = fileName.substring(0, dotIndex);
+            String extension = fileName.substring(dotIndex);
+            newFileName = name + suffix + extension;
+        } else {
+            newFileName = fileName + suffix;
+        }
+        return source.resolveSibling(newFileName);
+    }
 }
