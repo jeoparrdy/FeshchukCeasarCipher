@@ -4,7 +4,11 @@ public class BrutForcer {
     public static final BrutForcer INSTANCE = new BrutForcer();
     private BrutForcer() {}
 
-    public void execute() {
+    public void execute(String filePath) {
 
+    }
+
+    public void bruteForce(String filePath) {
+        
     }
 }
